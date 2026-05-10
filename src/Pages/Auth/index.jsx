@@ -1,9 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
+import FirstStep from './FirstStep';
+import ForgetPass from './ForgetPass';
+import LoginPass from './LoginPass';
+import LoginOtp from './LoginOtp';
 
-export default function index() {
-  return (
-    <div>
-      
-    </div>
-  )
+export default function Auth() {
+    const [phoneNumber, setPhoneNumber] = useState("");
+    const [pageType, setPageType] = useState('first');
+    return (
+        <>
+       {pageType == "first" ? (
+        <FirstStep phoneNumber={phoneNumber} changePhone={setPhoneNumber} 
+        changePage={setPageType} />
+      ) : pageType == "forget" ? (
+        <ForgetPass changePage={setPageType} changePhone={setPhoneNumber} />
+      ) : pageType == "password" ? (
+        <LoginPass phoneNumber={phoneNumber} changePage={setPageType} />
+      ) : (
+        <LoginOtp phoneNumber={phoneNumber} changePage={setPageType} />
+      )}
+        </>
+    )
 }
