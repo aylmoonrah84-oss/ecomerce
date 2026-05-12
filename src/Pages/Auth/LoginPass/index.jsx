@@ -40,7 +40,7 @@ export default function LoginPass({ phoneNumber, ChangePage }) {
     setLoading(false);
   };
   return (
-    <form onSubmit={handleSubmit} className='text-right'>
+    <form onSubmit={handleSubmit} className='text-right font-sans'>
 
       <span onClick={() => ChangePage("first")}>برگشت</span>
 

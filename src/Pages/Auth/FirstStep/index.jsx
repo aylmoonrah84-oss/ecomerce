@@ -21,7 +21,7 @@ export default function FirstStep({ phoneNumber, changePhone, changePage }) {
     setIsLoading(false);
   }
   return (
-    <form onSubmit={handelSubmit} className=' dark:dark text-right w-full max-w-md mx-auto mt-16 p-8 rounded-2xl 
+    <form onSubmit={handelSubmit} className=' font-sans dark:dark text-right w-full max-w-md mx-auto mt-16 p-8 rounded-2xl 
     backdrop-blur-xl bg-[#FAE8FF] border-white/30 flex flex-col gap-6 animate-fadeIn'>
       <h2 className='text-2xl font-bold text-center text-gray-800 drop-shadow-md' >ورود یا ثبت نام</h2>
       <input type="text"

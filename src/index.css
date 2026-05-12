@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@font-face {
+    font-family: "IRANSansX";
+     src: url(./assets/Fonts/Iranian\ Sans.ttf);
+}
+@theme {
+    --font-sans: "IRANSansX" , sans-serif;
+}
