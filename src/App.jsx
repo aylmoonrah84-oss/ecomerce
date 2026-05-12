@@ -1,12 +1,11 @@
 import React from 'react'
+import FirstStep from './Pages/Auth/FirstStep'
 
-export default function App() {
+export default function App () {
   return (
-    <div>
-    <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
-  
-    </div>
+    <>
+      <FirstStep/>
+    </>
   )
 }
+
