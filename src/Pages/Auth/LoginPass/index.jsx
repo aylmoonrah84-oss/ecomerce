@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import fetchData from '../../../Utils/fetchData';
 import notify from '../../../Utils/notify';
+import { login } from '../../../Store/Slices/AuthSlice';
 
 export default function LoginPass({ phoneNumber, ChangePage }) {
   const [password, setPassword] = useState("");
