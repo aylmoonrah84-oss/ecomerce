@@ -1,10 +1,13 @@
 import React from 'react'
-import FirstStep from './Pages/Auth/FirstStep'
+import { Toaster } from 'react-hot-toast'
+import { RouterProvider } from 'react-router-dom'
+import router from './Router'
 
-export default function App () {
+export default function App() {
   return (
     <>
-      <FirstStep/>
+      <RouterProvider router={router} />
+      <Toaster />
     </>
   )
 }
