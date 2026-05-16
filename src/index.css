@@ -1,5 +1,10 @@
 @import "tailwindcss";
-
+@theme{
+    --color-primary:#DDD6FE;
+    --color-secondary:#BAE6FD;
+    --color-third:#FBCFE8;
+    --color-bg:#FAE9FF;
+}
 @font-face {
     font-family: "IRANSansX";
      src: url(./assets/Fonts/Iranian\ Sans.ttf);

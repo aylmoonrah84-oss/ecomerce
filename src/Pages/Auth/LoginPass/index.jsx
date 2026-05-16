@@ -4,13 +4,13 @@ import fetchData from '../../../Utils/fetchData';
 import notify from '../../../Utils/notify';
 import { login } from '../../../Store/Slices/AuthSlice';
 
-export default function LoginPass({ phoneNumber, ChangePage }) {
+export default function LoginPass({ phoneNumber, changePage }) {
   const [password, setPassword] = useState("");
-  const [loading, setIsLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
   const handeleOtp = async () => {
-    setIsLoading(true);
+    setLoading(true);
     const result = await fetchData("auth/resend-code", {
       method: "POST",
       headers: {
@@ -19,8 +19,8 @@ export default function LoginPass({ phoneNumber, ChangePage }) {
       body: JSON.stringify({ phoneNumber }),
     });
     notify(result.success ? "success" : "error", result.message);
-    if (result.success) ChangePage("otp");
-    setIsLoading(false);
+    if (result.success) changePage("otp");
+    setLoading(false);
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,7 +43,7 @@ export default function LoginPass({ phoneNumber, ChangePage }) {
   return (
     <form onSubmit={handleSubmit} className='text-right font-sans'>
 
-      <span onClick={() => ChangePage("first")}>برگشت</span>
+      <span onClick={() => changePage("forget")}>برگشت</span>
 
       <input type='text'
         value={phoneNumber}

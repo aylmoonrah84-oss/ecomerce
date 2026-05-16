@@ -10,7 +10,7 @@ export default function LoginOtp({phoneNumber,changePage}) {
   const[resendTime,setResendTime]=useState(120);
   const dispatch=useDispatch();
 
-  const formtime=()=>{
+  const formatTime=()=>{
     const min=Math.floor(resendTime / 60);
     const sec =resendTime % 60;
     return`${min}:${sec < 10 ?"0" + sec:sec}`;
