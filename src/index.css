@@ -1,9 +1,42 @@
 @import "tailwindcss";
-@theme{
-    --color-primary:#DDD6FE;
-    --color-secondary:#BAE6FD;
-    --color-third:#FBCFE8;
-    --color-bg:#FAE9FF;
+
+
+@theme {
+
+
+ 
+  --color-bg-primary: #f8f7f4;
+  --color-bg-secondary: #ffffff;
+  --color-bg-dark: #1f1f1f;
+
+ 
+  --color-text-primary: #222222;
+  --color-text-secondary: #6b7280;
+  --color-text-light: #f9fafb;
+
+  --color-primary: #2d2a26;
+  --color-primary-light: #44403c;
+
+  --color-accent: #c08b5c;
+  --color-accent-hover: #a87446;
+
+
+  --color-border: #e5e7eb;
+
+  --color-success: #16a34a;
+  --color-danger: #dc2626;
+  --color-warning: #f59e0b;
+
+  
+  --radius-card: 20px;
+
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+body {
+  direction: rtl;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
 }
 @font-face {
     font-family: "IRANSansX";
