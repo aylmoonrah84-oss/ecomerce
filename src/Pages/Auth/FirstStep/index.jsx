@@ -1,11 +1,18 @@
-import React, { useState } from 'react'
-import fetchData from '../../../Utils/fetchData'
-import notify from '../../../Utils/notify';
+import React, { useState } from "react";
+import fetchData from "../../../Utils/fetchData";
+import notify from "../../../Utils/notify";
+import { Phone, Lock } from "lucide-react";
 
-export default function FirstStep({ phoneNumber, changePhone, changePage }) {
+export default function FirstStep({
+  phoneNumber,
+  changePhone,
+  changePage,
+}) {
   const [loading, setLoading] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     setLoading(true);
 
     const result = await fetchData("auth", {
@@ -13,7 +20,7 @@ export default function FirstStep({ phoneNumber, changePhone, changePage }) {
       headers: {
         "Content-type": "application/json",
       },
-      body: JSON.stringify({phoneNumber}),
+      body: JSON.stringify({ phoneNumber }),
     });
 
     notify(result.success ? "success" : "error", result.message);
@@ -24,81 +31,122 @@ export default function FirstStep({ phoneNumber, changePhone, changePage }) {
 
     setLoading(false);
   };
+
   return (
-
-    <form
-      onSubmit={handleSubmit}
-      className="
-    font-sans text-right w-full max-w-md mx-auto mt-16 p-8 rounded-2xl
-    backdrop-blur-xl
-    bg-bg
-    border border-primary
-    shadow-xl
-    flex flex-col gap-6
-    transition-all duration-300
-    dark:bg-gray-800/70 dark:border-gray-700
-    "
-    >
-      <h2
+    <div className="min-h-screen flex items-center justify-center px-4 bg-bg-primary">
+      <form
+        onSubmit={handleSubmit}
         className="
-      text-2xl font-bold text-center
-      text-gray-800 dark:text-white
-      "
+          w-full max-w-md
+          bg-bg-secondary
+          border border-border
+          shadow-soft
+          rounded-card
+          p-6 sm:p-8
+          flex flex-col gap-6
+        "
       >
-        ورود یا ثبت نام
-      </h2>
+        {/* Header */}
+        <div className="flex flex-col items-center gap-3">
+          <div
+            className="
+              w-16 h-16
+              rounded-full
+              bg-accent/10
+              flex items-center justify-center
+            "
+          >
+            <Lock className="text-accent w-7 h-7" />
+          </div>
 
-      <input
-        type="text"
-        placeholder="....شماره خود را وارد کنید"
-        value={phoneNumber}
-        onChange={(e) => changePhone(e.target.value)}
-        className="
-      w-full px-4 py-3 rounded-xl
-      bg-white
-      border border-[var(--color-primary)]
-      text-gray-800
-      placeholder-gray-400
-      focus:border-[var(--color-secondary)]
-      focus:ring-2 focus:ring-[var(--color-secondary)]
-      outline-none
-      transition-all duration-300
-      dark:bg-gray-900/60 dark:border-gray-600 dark:text-white
-      "
-      />
+          <div className="text-center">
+            <h2 className="text-2xl font-bold text-text-primary">
+              ورود / ثبت‌نام
+            </h2>
 
-      <button
-        disabled={loading || !phoneNumber}
-        type="submit"
-        className="
-      w-full py-3 rounded-xl
-      font-semibold
-      text-gray-900
-      bg-[var(--color-primary)]
-      hover:bg-[var(--color-third)]
-      transition-all duration-300
-      shadow-md hover:shadow-lg
-      active:scale-[0.98]
-      disabled:opacity-50 disabled:cursor-not-allowed
-      dark:text-gray-900
-      "
-      >
-        ورود
-      </button>
+            <p className="text-sm text-text-secondary mt-2">
+              برای ادامه شماره موبایل خود را وارد کنید
+            </p>
+          </div>
+        </div>
 
-      <span
-        onClick={() => changePage("forget")}
-        className="
-      text-sm text-center cursor-pointer
-      text-[var(--color-secondary)]
-      hover:text-[var(--color-third)]
-      transition
-      "
-      >
-        فراموشی رمز
-      </span>
-    </form>
+        {/* Input */}
+        <div className="flex flex-col gap-2">
+          <label className="text-sm text-text-secondary">
+            شماره موبایل
+          </label>
+
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="0912xxxxxxx"
+              value={phoneNumber}
+              onChange={(e) => changePhone(e.target.value)}
+              className="
+                w-full
+                h-13
+                rounded-card
+                border border-border
+                bg-bg-primary
+                pr-12 pl-4
+                text-text-primary
+                placeholder:text-text-secondary/60
+                outline-none
+                transition-all
+                focus:border-accent
+                focus:ring-2
+                focus:ring-accent/20
+              "
+            />
+
+            <Phone
+              className="
+                absolute
+                right-4
+                top-1/2
+                -translate-y-1/2
+                w-5 h-5
+                text-text-secondary
+              "
+            />
+          </div>
+        </div>
+
+        {/* Button */}
+        <button
+          disabled={loading || !phoneNumber}
+          type="submit"
+          className="
+            h-13
+            rounded-card
+            bg-accent
+            hover:bg-accent-hover
+            text-white
+            font-semibold
+            transition-all
+            active:scale-[0.98]
+            disabled:opacity-50
+            disabled:cursor-not-allowed
+          "
+        >
+          {loading ? "در حال بررسی..." : "ادامه"}
+        </button>
+
+        {/* Forget Password */}
+        <button
+          type="button"
+          onClick={() => changePage("forget")}
+          className="
+            text-sm
+            text-text-secondary
+            hover:text-accent
+            transition-all
+            mx-auto
+          "
+        >
+          رمز عبور را فراموش کرده‌ام
+        </button>
+      </form>
+    </div>
   );
-
-
 }
