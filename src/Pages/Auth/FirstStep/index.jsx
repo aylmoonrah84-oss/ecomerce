@@ -79,7 +79,7 @@ export default function FirstStep({
           <div className="relative">
             <input
               type="text"
-              placeholder="0912xxxxxxx"
+              placeholder="0915xxxxxxx"
               value={phoneNumber}
               onChange={(e) => changePhone(e.target.value)}
               className="
