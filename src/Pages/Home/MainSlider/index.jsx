@@ -17,11 +17,10 @@ export default function MainSlider() {
     (async () => {
       const result = await fetchData("sliders");
 
-      if (result.success) {
-        setSliders(result.data);
-        const result = await fetchData("sliders");
-        console.log(result);
-      }
+    if (result.success) {
+  setSliders(result.data);
+  console.log(result);
+}
     })();
   }, []);
 
