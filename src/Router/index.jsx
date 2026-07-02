@@ -9,6 +9,7 @@ import Auth from "../Pages/Auth";
 import Products from "../Pages/Products";
 import ProductDetails from "../Pages/ProductDetails/Index";
 import About from "../Pages/About/indedx";
+import NotFound from "../Pages/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -48,7 +49,11 @@ const router = createBrowserRouter([
     },{
       path:'about',
       element:<About/>,
-    }
+    },
+     {
+        path: "*",
+        element: <NotFound/>,
+      },
     ],
   },
 ]);
