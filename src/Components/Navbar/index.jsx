@@ -16,9 +16,30 @@ export default function Navbar() {
 
   return (
     <nav className="w-full bg-bg-secondary border-b border-border shadow-soft px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-4 sticky top-0 z-50">
-      <h1 className="text-xl sm:text-2xl font-black text-primary whitespace-nowrap">
-        استایلینو
-      </h1>
+
+      <Link to="/" className="flex items-center gap-2.5 group">
+        <div className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-105">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path
+              d="M10 2L13 7H17L14 11L15.5 16L10 13L4.5 16L6 11L3 7H7L10 2Z"
+              fill="none"
+              stroke="#c08b5c"
+              strokeWidth="1.6"
+              strokeLinejoin="round"
+            />
+            <circle cx="10" cy="10" r="2" fill="#c08b5c" />
+          </svg>
+        </div>
+
+        <div className="flex flex-col leading-none">
+          <span className="text-lg font-black text-primary tracking-tight">
+            استایلینو
+          </span>
+          <span className="text-[9px] font-medium text-accent tracking-[0.2em] uppercase">
+            Fashion Store
+          </span>
+        </div>
+      </Link>
 
       <ul className="hidden md:flex items-center gap-6 text-sm font-medium">
         <li>
